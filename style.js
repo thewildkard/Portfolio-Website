@@ -127,3 +127,24 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Show a thank you message after successful Formspree submission
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector('.fs-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        form.innerHTML = '<div style="text-align:center; padding:32px 0; color:var(--primary); font-size:1.2em;">Thank you! Your message has been sent.</div>';
+      } else {
+        alert("Oops! There was a problem submitting your form.");
+      }
+    });
+  });
+});

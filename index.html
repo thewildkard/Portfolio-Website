@@ -87,8 +87,10 @@
             <p>A Software Developer,</p>
             <br />
             <p>
-                With high level experience in web design and <br />
-                a passion for learning new technologies. As a junior developer, I enjoy building creative solutions, collaborating with teams, and continuously improving my skills to deliver quality results.
+              With high level experience in web design and <br />
+              a passion for learning new technologies. As a junior developer, I
+              enjoy building creative solutions, collaborating with teams, and
+              continuously improving my skills to deliver quality results.
               development knowledge, producing quality work.
             </p>
             <br />
@@ -136,19 +138,18 @@
             </div>
             <a href="#contact" class="btn"><span>Contact Me</span></a>
             <div class="socials">
-          <a href="https://web.whatsapp.com/"
-            ><img src="./icons/icon7.png" alt="WhatsApp"
-          /></a>
-          <a href="https://x.com/home"
-            ><img src="./icons/icon3.png" alt="X"
-          /></a>
-          <a href="https://www.instagram.com/__the.wildkard/"
-            ><img src="./icons/icon1.png" alt="Instagram"
-          /></a>
-        </div>
+              <a href="https://web.whatsapp.com/"
+                ><img src="./icons/icon7.png" alt="WhatsApp"
+              /></a>
+              <a href="https://x.com/home"
+                ><img src="./icons/icon3.png" alt="X"
+              /></a>
+              <a href="https://www.instagram.com/__the.wildkard/"
+                ><img src="./icons/icon1.png" alt="Instagram"
+              /></a>
+            </div>
           </div>
         </div>
-        
       </section>
 
       <section class="skills" id="skills">
@@ -285,37 +286,43 @@
         </div>
       </section>
 
-      <section class="contact" id="contact">
+      <section class="contact-section" id="contact">
         <div class="title5">
           <h2>Contact Me</h2>
           <p>Get In Touch</p>
         </div>
-        <div class="contactForm">
-          <div class="row">
-            <div class="col50">
-              <input type="text" name="" placeholder="First Name" />
-            </div>
-            <div class="col50">
-              <input type="text" name="" placeholder="Last Name" />
-            </div>
-            <div class="col50">
-              <input type="text" name="" placeholder="Email" />
-            </div>
-            <div class="col50">
-              <input type="text" name="" placeholder="Mobile No." />
-            </div>
+
+        <form
+          action="https://formspree.io/f/mrbkjqwk"
+          class="fs-form"
+          target="_top"
+          method="POST"
+        >
+          <div class="fs-field">
+            <label class="fs-label" for="name">Your Name</label>
+            <input class="fs-input" id="name" name="name" required />
           </div>
-          <div class="row">
-            <div class="col100">
-              <textarea placeholder="Message"></textarea>
-            </div>
+          <div class="fs-field">
+            <label class="fs-label" for="email">Email</label>
+            <input class="fs-input" id="email" name="email" required />
+            <p class="fs-description">
+              This will help me respond to your query via an email.
+            </p>
           </div>
-          <div class="row">
-            <div class="col100">
-              <input type="submit" value="Send" />
-            </div>
+          <div class="fs-field">
+            <label class="fs-label" for="message">Message</label>
+            <textarea
+              class="fs-textarea"
+              id="message"
+              name="message"
+              required
+            ></textarea>
+            <p class="fs-description">What would you like to discuss?</p>
           </div>
-        </div>
+          <div class="fs-button-group">
+            <button class="fs-button" type="submit">Submit</button>
+          </div>
+        </form>
       </section>
     </main>
 

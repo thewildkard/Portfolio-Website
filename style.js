@@ -27,6 +27,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+/* Haamburger nav */
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  }
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e) {
@@ -38,6 +49,25 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const playBtn = document.getElementById('play-music');
+  const audio = document.getElementById('site-music');
+  if (playBtn && audio) {
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.querySelector('img').style.filter = "invert(36%) sepia(99%) saturate(749%) hue-rotate(230deg) brightness(95%) contrast(90%)";
+      } else {
+        audio.pause();
+        playBtn.querySelector('img').style.filter = "";
+      }
+    });
+    // Optional: Reset icon when music ends
+    audio.addEventListener('ended', function() {
+      playBtn.querySelector('img').style.filter = "";
+    });
+  }
+});
 
 
 // Fade in sections on scroll
@@ -81,6 +111,45 @@ document.addEventListener("DOMContentLoaded", function() {
         profile.style.transform = '';
         content.style.transform = '';
     });
+});
+
+/*Looping text*/
+document.addEventListener("DOMContentLoaded", function() {
+  const typingElement = document.querySelector('.typing-effect');
+  if (!typingElement) return;
+
+  // List of texts to loop through
+  const texts = [
+    "Hi, I'm Faisal",
+    
+  ];
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeLoop() {
+    const currentText = texts[textIndex];
+    if (isDeleting) {
+      typingElement.textContent = currentText.substring(0, charIndex--);
+      if (charIndex < 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(typeLoop, 600); // Pause before typing next
+      } else {
+        setTimeout(typeLoop, 40);
+      }
+    } else {
+      typingElement.textContent = currentText.substring(0, charIndex++);
+      if (charIndex > currentText.length) {
+        isDeleting = true;
+        setTimeout(typeLoop, 1200); // Pause before deleting
+      } else {
+        setTimeout(typeLoop, 90);
+      }
+    }
+  }
+
+  typeLoop();
 });
 
 // Animated tilt and glow effect for service cards

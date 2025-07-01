@@ -846,8 +846,7 @@ filter: invert(1);
 }
 
 .work .content3 .workBx .imgBx {
-   width: 100%;
-  height: 100%;
+ width: 100%;
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
@@ -898,35 +897,58 @@ filter: invert(1);
     }
 }
 @media (max-width: 600px) {
-    .work .content3 {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        max-width: 98vw;
-    }
-    .work .content3 .workBx {
-       width: 90vw;
+  .work .content3 {
+    grid-template-columns: 1fr;   /* Only one card per row */
+    gap: 18px;
     max-width: 98vw;
-    min-width: 60px;
-    aspect-ratio: 1 / 1;      /* Ensures square shape */
-    height: auto;             /* Let aspect-ratio control height */
+  }
+  .work .content3 .workBx {
+    width: 92vw;
+    max-width: 98vw;
+    aspect-ratio: 1 / 1;         /* Keep card square */
+    height: auto;
+    margin: 0 auto;
     padding: 0;
-    font-size: 0.95em;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    }
-     .work .content3 .workBx .imgBx {
-    width: 100%;
-    height: 60%;
-    min-height: 0;
-    aspect-ratio: auto;
+    overflow: hidden;
   }
-    .work .content3 .workBx .workTextBx {
-        font-size: 0.95em;
-    height: 40%;
+  .work .content3 .workBx .imgBx {
+    width: 100%;
+    aspect-ratio: 1 / 1;         /* Keep image container square */
+    height: auto;
     min-height: 0;
-    }
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: hidden;
+    padding: 0;
+  }
+  .work .content3 .workBx .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1em 1em 0 0;
+    display: block;
+    margin: 0;
+  }
+  .work .content3 .workBx .workTextBx {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    background: #012059;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1 !important;
+    transform: none !important;
+    border-radius: 0 0 1em 1em;
+    pointer-events: auto;
+    transition: none;
+  }
 }
 
 
